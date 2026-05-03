@@ -24,11 +24,11 @@ if not _db_path.is_absolute():
 DB_PATH = str(_db_path.resolve())
 
 # 数据模式
-DATA_MODE = os.getenv("DATA_MODE", "websearch")
+DATA_MODE = os.getenv("DATA_MODE", "tdx")
 
 
 def get_data_mode() -> str:
-    """获取当前数据模式：jnb 或 websearch"""
+    """获取当前数据模式：tdx 或 websearch"""
     return DATA_MODE
 
 
@@ -305,7 +305,7 @@ def get_realtime_data(ts_code: str) -> Optional[DailyData]:
     获取实时/最新行情数据
     需要外部传入实时数据，这里仅作为数据结构定义
     """
-    # 实际使用时由 tushare_client 获取实时数据
+    # 实际使用时由 tdx_client 获取本地最新数据
     pass
 
 

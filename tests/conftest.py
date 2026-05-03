@@ -28,7 +28,7 @@ def mock_env_for_tests():
         }
         # 清除可能影响测试的已有变量
         for key in list(os.environ.keys()):
-            if key in ("DATA_MODE", "DB_PATH", "DATA_DIR", "TUSHARE_TOKEN"):
+            if key in ("DATA_MODE", "DB_PATH", "DATA_DIR", "TDX_PATH"):
                 del os.environ[key]
         os.environ.update(env_vars)
         yield db_path

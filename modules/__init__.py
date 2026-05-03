@@ -3,7 +3,10 @@ Zettaranc 技术分析模块包
 """
 
 from .database import get_connection, get_db_path, init_database
-from .tushare_client import TushareClient
+try:
+    from .tdx_client import TdxClient
+except Exception:
+    TdxClient = None
 from .setup_wizard import run_wizard, check_env_exists, check_data_mode
 
 # 随堂测试复盘模块（数据准备层，点评由LLM生成）
@@ -15,7 +18,7 @@ __all__ = [
     'get_connection',
     'get_db_path',
     'init_database',
-    'TushareClient',
+    'TdxClient',
     'run_wizard',
     'check_env_exists',
     'check_data_mode',
@@ -32,7 +35,7 @@ __all__ = [
 
 
 def get_data_mode() -> str:
-    """获取当前数据模式：jnb 或 websearch"""
+    """获取当前数据模式：tdx 或 websearch"""
     import os
     from dotenv import load_dotenv
     from pathlib import Path

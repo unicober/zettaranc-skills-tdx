@@ -1,39 +1,54 @@
-# 临时文件
-merge_output*.txt
-PHASE2_SYNTHESIS.md
-*.log
-
-# 环境变量（包含敏感信息）
+# Local secrets and environment
 .env
+.env.*
+!.env.example
 
-# 本地数据（SQLite 数据库，体积大且个人化，不入库）
-data/*.db
+# Local data and generated databases
+data/
+*.db
+*.sqlite
+*.sqlite3
 
-# 原始语料（体积大、版权问题，仓库中仅保留调研提炼文件和 SKILL.md）
+# Raw corpus and local knowledge-base links
 references/sources/
+references/sources
 
-# Python
+# Personal assets
+assets/wechat-qr.png
+
+# Python caches and build outputs
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
 
-# 系统文件
+# Logs and temporary files
+*.log
+merge_output*.txt
+PHASE2_SYNTHESIS.md
+*.tmp
+*.bak
+
+# System and editor files
 .DS_Store
 Thumbs.db
-
-# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# 文档转换临时文件
 ~$*.docx
 
-# AI configs
+# Local AI tool state
 .claude
 CLAUDE.md
 CLAUDE.md.bak
 .omc/
 
+# Vendored or nested repositories must be imported intentionally.
+cli-anything-tdx-tq-/
