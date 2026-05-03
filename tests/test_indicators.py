@@ -434,7 +434,7 @@ class TestSellScore:
 
     def test_insufficient_data(self):
         klines = make_klines(n=1)
-        score, desc, items = calculate_sell_score(klines)
+        score, items = calculate_sell_score(klines)
         assert score == 3
         assert items == {}
 

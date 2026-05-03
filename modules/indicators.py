@@ -2027,7 +2027,7 @@ def detect_four_brick_system(klines: List[DailyData]) -> Dict:
     return result
 
 
-def calculate_sell_score(klines: List[DailyData]) -> Tuple[int, str, Dict[str, bool]]:
+def calculate_sell_score(klines: List[DailyData]) -> Tuple[int, Dict[str, bool]]:
     """
     计算防卖飞评分 V1.4（5分制）
 
@@ -2039,10 +2039,10 @@ def calculate_sell_score(klines: List[DailyData]) -> Tuple[int, str, Dict[str, b
     5. J 没死叉？ +1
 
     Returns:
-        (评分, 满分描述, 明细字典)
+        (评分, 明细字典)
     """
     if len(klines) < 2:
-        return 3, "数据不足", {}
+        return 3, {}
 
     today = klines[-1]
     yesterday = klines[-2]
